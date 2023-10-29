@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../store/todoSlice";
+import { toast } from "react-hot-toast";
 
 function AddTodo() {
   const dispatch = useDispatch();
@@ -14,9 +15,12 @@ function AddTodo() {
   };
 
   const addSingleTodo = () => {
+    toast.success("Todo Added Successfully !");
     dispatch(
-      addTodo({ title: title, description: description, status: "PENDING" })
+      addTodo({ title: title, description: description, status: "PENDING" ,read:false})
     );
+    setTitle('')
+    setDescription('')
   };
 
   return (

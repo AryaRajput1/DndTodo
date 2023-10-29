@@ -16,7 +16,8 @@ const todo = createSlice({
                 id:nanoid(),
                 title:action.payload.title,
                 description:action.payload.description,
-                status:action.payload.status
+                status:action.payload.status,
+                read: action.payload.read
             }
             state.todos.push(todo);
 
@@ -33,6 +34,7 @@ const todo = createSlice({
             state.todos.forEach(todo => {
                 if(todo.id==action.payload.id){
                     todo.status=action.payload.status
+                    todo.read=action.payload.read
                 }
                 todos.push(todo)
             });

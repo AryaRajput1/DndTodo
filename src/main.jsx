@@ -5,6 +5,9 @@ import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider } fro
 import Login from './components/Login.jsx'
 import { Provider } from 'react-redux'
 import { store } from './store/store.js'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import { Toaster } from 'react-hot-toast'
 
 const router =createBrowserRouter(
   createRoutesFromElements(
@@ -18,6 +21,10 @@ const router =createBrowserRouter(
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
     <Provider store={store}>
+    <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
     <RouterProvider router={router}/>
     </Provider>
   </>,

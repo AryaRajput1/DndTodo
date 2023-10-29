@@ -7,13 +7,13 @@ import { useState } from "react";
 function TodoCategory({title,titleClass,todos=[],droppableId}) {
   return (
     <div className="capitalize w-full flex flex-col bg-white shadow-md rounded-md">
-          <h2 className={`text-xl font-bold mx-5 my-3 text-center  p-3 rounded-2xl  ${titleClass}`}>{title}</h2>
+          <h2 className={`text-xl font-bold mx-5 my-3 text-center  p-3 rounded-2xl  ${titleClass}`}>{title} ({todos.length})</h2>
           <Droppable droppableId={droppableId}>
             {(provided,snapshot) => (
               <div  {...provided.droppableProps} ref={provided.innerRef} className={`${snapshot.isDraggingOver?'bg-gray-100':''}`}>
                 {
                  todos.map((todo, index) => {
-                    return <Todo index={index} key={todo.id} title={todo.title} description={todo.description} id={todo.id} status={todo.status} />
+                    return <Todo index={index} read={todo.read} key={todo.id} title={todo.title} description={todo.description} id={todo.id} status={todo.status} />
                   })
                 }
                 {provided.placeholder}
